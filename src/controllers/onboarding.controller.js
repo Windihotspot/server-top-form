@@ -1,4 +1,4 @@
-import { supabase } from '../services/supabaseClient.js'
+import { supabase } from "../services/supabaseClient.js";
 
 export const createOnboarding = async (req, res) => {
   const { school, admin } = req.body
@@ -40,7 +40,7 @@ export const createOnboarding = async (req, res) => {
     const { data: adminData, error: adminError } = await supabase
       .from('admins')
       .insert([{
-        fullName: admin.fullName,
+        fullname: admin.fullName,
         email: admin.email,
         phone: admin.phone,
         role: admin.role || 'Owner/Admin',
