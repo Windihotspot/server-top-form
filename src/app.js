@@ -2,9 +2,14 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 
-import onboardingRoutes from './routes/onboarding.routes.js'
-import authRoutes from './routes/auth.routes.js'
-import studentsRoutes from './routes/students.routes.js'
+import onboardingRoutes from './routes/onboardingRoutes.js'
+import authRoutes from './routes/authRoutes.js'
+import studentsRoutes from './routes/studentsRoutes.js'
+import teachersRoutes from './routes/teachersRoutes.js'
+import employeesRoutes from './routes/employeesRoutes.js'
+import revenueRoutes from './routes/revenueRoutes.js'
+import expensesRoutes from './routes/expensesRoutes.js'
+import attendanceRoutes from './routes/attendanceRoutes.js'
 
 const app = express()
 
@@ -15,5 +20,10 @@ app.use(express.json())
 app.use('/api/onboarding', onboardingRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/students', studentsRoutes)
+app.use('/api/teachers', teachersRoutes)
+app.use('/api/employees', employeesRoutes)
+app.use('/api/revenue', revenueRoutes)
+app.use('/api/expenses', expensesRoutes)
+app.use('/api/attendance', attendanceRoutes)
 
 export default app
