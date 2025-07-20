@@ -4,6 +4,7 @@ import morgan from 'morgan'
 
 import onboardingRoutes from './routes/onboarding.routes.js'
 import authRoutes from './routes/auth.routes.js'
+import studentsRoutes from './routes/students.routes.js'
 
 const app = express()
 
@@ -13,5 +14,6 @@ app.use(express.json())
 
 app.use('/api/onboarding', onboardingRoutes)
 app.use('/api/auth', authRoutes)
+app.use('/api/students', studentsRoutes)
 
 export default app
