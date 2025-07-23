@@ -10,6 +10,8 @@ import employeesRoutes from './routes/employeesRoutes.js'
 import revenueRoutes from './routes/revenueRoutes.js'
 import expensesRoutes from './routes/expensesRoutes.js'
 import attendanceRoutes from './routes/attendanceRoutes.js'
+import earningsRoutes from  './routes/earningsRoutes.js'
+
 
 const app = express()
 
@@ -25,5 +27,6 @@ app.use('/api/employees', employeesRoutes)
 app.use('/api/revenue', revenueRoutes)
 app.use('/api/expenses', expensesRoutes)
 app.use('/api/attendance', attendanceRoutes)
+app.use('/api/earnings', earningsRoutes)
 
 export default app
