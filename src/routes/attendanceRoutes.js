@@ -10,7 +10,7 @@ const router = express.Router()
 
 router.use(authenticate)
 
-router.get('/', getAttendance)
-router.get('/summary', getAttendanceSummaryByDay) // 👈 chart data
+router.get('/', authenticate, getAttendance)
+router.get('/summary', authenticate, getAttendanceSummaryByDay) // 👈 chart data
 
 export default router

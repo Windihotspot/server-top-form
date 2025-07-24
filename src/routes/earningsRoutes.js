@@ -10,8 +10,8 @@ const router = express.Router()
 
 router.use(authenticate)
 
-router.get('/', getEarnings)
-router.get('/by-month', getEarningsByMonth)
-router.get('/summary', getEarningsSummaryByDay) // ✅ new route here
+router.get('/',authenticate, getEarnings)
+router.get('/by-month', authenticate, getEarningsByMonth)
+router.get('/summary', authenticate, getEarningsSummaryByDay) // ✅ new route here
 
 export default router
