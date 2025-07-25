@@ -12,6 +12,8 @@ import expensesRoutes from './routes/expensesRoutes.js'
 import attendanceRoutes from './routes/attendanceRoutes.js'
 import earningsRoutes from  './routes/earningsRoutes.js'
 import adminRoutes from './routes/adminRoutes.js'
+import notificationsRoutes from './routes/notificationsRoutes.js'
+
 
 
 
@@ -32,5 +34,6 @@ app.use('/api/expenses', expensesRoutes)
 app.use('/api/attendance', attendanceRoutes)
 app.use('/api/earnings', earningsRoutes)
 app.use('/api/admins', adminRoutes)
+app.use('/api/notifications', notificationsRoutes)
 
 export default app
