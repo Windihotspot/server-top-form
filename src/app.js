@@ -17,12 +17,37 @@ import notificationsRoutes from './routes/notificationsRoutes.js'
 
 
 
-
 const app = express()
+
+
 
 app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
+
+
+// Capture request body
+morgan.token('req-body', (req) => JSON.stringify(req.body))
+
+// Capture response body
+morgan.token('res-body', (req, res) => res.locals.body || '')
+
+// Middleware to override res.send and capture the response
+app.use((req, res, next) => {
+  const originalSend = res.send.bind(res)
+  res.send = (body) => {
+    res.locals.body = typeof body === 'object' ? JSON.stringify(body) : body
+    return originalSend(body)
+  }
+  next()
+})
+
+// Logging middleware
+app.use(
+  morgan(':method :url :status - req: :req-body - res: :res-body')
+)
+
+
 
 app.use('/api/onboarding', onboardingRoutes)
 app.use('/api/auth', authRoutes)
