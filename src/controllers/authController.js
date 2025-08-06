@@ -25,7 +25,7 @@ export const loginAdmin = async (req, res) => {
     // Fetch Admin Profile with School ID
     const { data: adminData, error: adminError } = await supabase
       .from('admins')
-      .select('id, school_id, fullname, role')
+      .select('id, school_id, fullname, avatar_url, role')
       .eq('user_id', authData.user.id)
       .single();
 

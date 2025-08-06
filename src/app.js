@@ -33,19 +33,19 @@ morgan.token('req-body', (req) => JSON.stringify(req.body))
 morgan.token('res-body', (req, res) => res.locals.body || '')
 
 // Middleware to override res.send and capture the response
-app.use((req, res, next) => {
-  const originalSend = res.send.bind(res)
-  res.send = (body) => {
-    res.locals.body = typeof body === 'object' ? JSON.stringify(body) : body
-    return originalSend(body)
-  }
-  next()
-})
+// app.use((req, res, next) => {
+//   const originalSend = res.send.bind(res)
+//   res.send = (body) => {
+//     res.locals.body = typeof body === 'object' ? JSON.stringify(body) : body
+//     return originalSend(body)
+//   }
+//   next()
+// })
 
 // Logging middleware
-app.use(
-  morgan(':method :url :status - req: :req-body - res: :res-body')
-)
+// app.use(
+//   morgan(':method :url :status - req: :req-body - res: :res-body')
+// )
 
 
 
